@@ -22,10 +22,8 @@ html {
 }
 
 body {
-  min-height: 100vh;
-  height: 100%;
+  height: 100vh;
   letter-spacing: 0.2rem;
-  padding: 0 1rem;
   overflow-y: scroll;
   overflow-x: hidden;
   background-color: var(--primary);
@@ -34,37 +32,45 @@ body {
 
 .grid {
   display: grid;
-  grid-template-rows: repeat(5, 1fr);
+  grid-template-rows: repeat(5, minmax(400px, 1fr));
   grid-template-columns: 60vw;
   place-content: center;
-  row-gap: 1rem;
+  row-gap: 3rem;
+  padding-bottom: 2rem;
 }
 
-article {
-  transition: 0.3s;
+.grid-item {
   background-color: var(--secondary);
   display: grid;
-  grid-template-rows: auto 1fr;
-  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 3rem calc(100% - 3rem);
+  grid-template-columns: fit-content(250px) 1fr;
   border-radius: 25px;
   padding: 1rem;
-  gap: 1rem;
+  column-gap: 1rem;
+  opacity: 0;
+  transform: scale(0.4);
+  transition: 0.3s ease-in-out 0.7s;
+  box-shadow: -9px 11px 20px 3px var(--primary-dark);
 }
 
-article > header {
-  position: relative;
-  top: calc(1rem + 50%);
-  left: 2vw;
-  width: 65%;
+.appear {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.grid-item > header {
+  grid-row: 1/2;
   background-color: var(--secondary-dark);
   color: var(--secondary-text);
   border-radius: 1rem;
   padding: 0.5rem;
+  display: flex;
+  align-items: center;
 }
 
 .header {
   height: var(--header-height);
-  margin: 2rem 0 5rem;
+  margin: 2rem 0 5rem 2rem;
 }
 
 ul {
@@ -72,45 +78,61 @@ ul {
   padding-left: 0;
 }
 
+.img-container {
+  grid-row: 2/-1;
+  height: 100%;
+  display: flex;
+  justify-content: end;
+  padding: 1rem;
+}
+
 img {
-  grid-row: 2/3;
-  max-width: 100%;
+  width: 100%;
   border: 1px solid transparent;
   border-radius: 20px;
 }
 
 .description {
-  grid-row: 2/3;
+  grid-row: 1/-1;
   grid-column: 2/3;
+  overflow: auto;
   background-color: var(--secondary-light);
   border-radius: 10px;
   padding: 2rem;
   font-size: 1rem;
-  place-self: center;
+  margin-bottom: 1rem;
 }
 
 @media only screen and (max-width: 1024px) {
   .grid {
-    grid-template-columns: 95vw;
-  }
-  article {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(3, auto);
+    grid-template-columns: 85vw;
   }
 
-  article > header {
-    left: 5vw;
-    padding-left: 2rem;
+  .grid-item {
+    grid-template-columns: 1fr;
+    grid-template-rows: 3rem calc(80% - 33%) 1fr;
+    row-gap: 1rem;
+  }
+
+  .grid-item > header {
+    grid-row: 1/2;
+  }
+
+  .img-container {
+    grid-row: 2/3;
+    padding: 0;
   }
 
   img {
-    grid-column: 1/-1;
-    place-self: stretch;
+    object-fit: cover;
+    object-position: center;
   }
 
   .description {
     grid-row: 3/4;
     grid-column: 1/-1;
+    font-size: 1.2rem;
+    padding: 1rem;
   }
 }
 
