@@ -1,13 +1,13 @@
 :root {
   --header-height: 4rem;
-  --primary: #1de9b6;
-  --primary-light: #6effe8;
-  --primary-dark: #00b686;
-  --secondary: #2196f3;
-  --secondary-light: #6ec6ff;
-  --secondary-dark: #0069c0;
-  --primary-text: #000000;
-  --secondary-text: #fafafa;
+  --text-dark: #000000;
+  --text-light: #fafafa;
+  /*Flowwy color palete : https://coolors.co/ef476f-ffd166-06d6a0-118ab2-073b4c*/
+  --paradise-pink: #ef476fff;
+  --orange-yellow-crayola: #ffd166ff;
+  --caribbean-green: #06d6a0ff;
+  --blue-ncs: #118ab2ff;
+  --midnight-green-eagle-green: #073b4cff;
 }
 
 *,
@@ -26,8 +26,8 @@ body {
   letter-spacing: 0.2rem;
   overflow-y: scroll;
   overflow-x: hidden;
-  background-color: var(--primary);
-  color: var(--primary-text);
+  background-color: var(--caribbean-green);
+  color: var(--text-dark);
 }
 
 .grid {
@@ -40,7 +40,7 @@ body {
 }
 
 .grid-item {
-  background-color: var(--secondary);
+  background-color: var(--orange-yellow-crayola);
   display: grid;
   grid-template-rows: 3rem calc(100% - 3rem);
   grid-template-columns: fit-content(250px) 1fr;
@@ -50,7 +50,7 @@ body {
   opacity: 0;
   transform: scale(0.4);
   transition: 0.3s ease-in-out 0.2s;
-  box-shadow: -9px 11px 20px 3px var(--primary-dark);
+  box-shadow: -9px 11px 20px 3px var(--midnight-green-eagle-green);
 }
 
 .appear {
@@ -60,8 +60,8 @@ body {
 
 .grid-item > header {
   grid-row: 1/2;
-  background-color: var(--secondary-dark);
-  color: var(--secondary-text);
+  background-color: var(--paradise-pink);
+  color: var(--text-light);
   border-radius: 1rem;
   padding: 0.5rem;
   display: flex;
@@ -96,7 +96,8 @@ img {
   grid-row: 1/-1;
   grid-column: 2/3;
   overflow: auto;
-  background-color: var(--secondary-light);
+  background-color: var(--midnight-green-eagle-green);
+  color: var(--text-light);
   border-radius: 10px;
   padding: 2rem;
   font-size: 1rem;
