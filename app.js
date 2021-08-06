@@ -6,10 +6,8 @@ if (window.IntersectionObserver) {
       console.log(entry, entry.intersectionRatio);
       if (entry.isIntersecting) {
         entry.target.classList.add('appear');
-      } else {
-        entry.target.classList.remove('appear');
+        entry.unobserve();
       }
-
     });
   }
 
