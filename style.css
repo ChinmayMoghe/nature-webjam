@@ -2,12 +2,23 @@
   --header-height: 4rem;
   --text-dark: #000000;
   --text-light: #fafafa;
+  --background: #c5eae1;
   /*Flowwy color palete : https://coolors.co/ef476f-ffd166-06d6a0-118ab2-073b4c*/
-  --paradise-pink: #ef476fff;
-  --orange-yellow-crayola: #ffd166ff;
-  --caribbean-green: #06d6a0ff;
-  --blue-ncs: #118ab2ff;
-  --midnight-green-eagle-green: #073b4cff;
+  --earth: #45340d;
+  --earth-light: #7a572f;
+  --earth-dark: #312509;
+  --water: #136492;
+  --water-light: #46a2d6;
+  --water-dark: #002b43;
+  --wind: #a4bcde;
+  --wind-light: #e9eef6;
+  --wind-dark: #5f86bb;
+  --fire: #ffbf1f;
+  --fire-light: #ffcb47;
+  --fire-dark: #c25c27;
+  --space: #142d52;
+  --space-light: #131820;
+  --space-dark: #101318;
 }
 
 *,
@@ -26,7 +37,7 @@ body {
   letter-spacing: 0.2rem;
   overflow-y: scroll;
   overflow-x: hidden;
-  background-color: var(--caribbean-green);
+  background-color: var(--background);
   color: var(--text-dark);
 }
 
@@ -40,7 +51,6 @@ body {
 }
 
 .grid-item {
-  background-color: var(--orange-yellow-crayola);
   display: grid;
   grid-template-rows: 3rem calc(100% - 3rem);
   grid-template-columns: fit-content(250px) 1fr;
@@ -50,7 +60,41 @@ body {
   opacity: 0;
   transform: scale(0.4);
   transition: 0.3s ease-in-out 0.2s;
-  box-shadow: -9px 11px 20px 3px var(--midnight-green-eagle-green);
+}
+
+.earth {
+  background: linear-gradient(45deg, var(--earth-dark), var(--earth-light));
+  color: var(--text-light);
+  box-shadow: -9px 11px 9px 1px var(--earth);
+}
+
+.water {
+  background: linear-gradient(45deg, var(--water-dark), var(--water-light));
+  color: var(--text-light);
+  box-shadow: -9px 11px 9px 1px var(--water);
+}
+
+.wind {
+  background: linear-gradient(45deg, var(--wind-dark), var(--wind-light));
+  color: var(--text-dark);
+  box-shadow: -9px 11px 9px 1px var(--wind);
+}
+
+.fire {
+  background: linear-gradient(45deg, var(--fire-dark), var(--fire));
+  color: var(--text-dark);
+  box-shadow: -9px 11px 9px 1px var(--fire-dark);
+}
+
+.space {
+  background: linear-gradient(
+    45deg,
+    var(--space),
+    var(--space-light),
+    var(--space-dark)
+  );
+  color: var(--text-light);
+  box-shadow: -9px 11px 20px 3px var(--space);
 }
 
 .appear {
@@ -60,10 +104,10 @@ body {
 
 .grid-item > header {
   grid-row: 1/2;
-  background-color: var(--paradise-pink);
-  color: var(--text-light);
+  background-color: inherit;
+  color: inherit;
   border-radius: 1rem;
-  padding: 0.5rem;
+  padding: 0.5rem 1.5rem 0;
   display: flex;
   align-items: center;
 }
@@ -93,11 +137,11 @@ img {
 }
 
 .description {
-  grid-row: 1/-1;
+  grid-row: 2/-1;
   grid-column: 2/3;
   overflow: auto;
-  background-color: var(--midnight-green-eagle-green);
-  color: var(--text-light);
+  background-color: inherit;
+  color: inherit;
   border-radius: 10px;
   padding: 2rem;
   font-size: 1rem;
