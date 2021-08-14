@@ -107,7 +107,7 @@ body {
 }
 
 .grid-item > header {
-  font-size: 2rem;
+  font-size: 1.4rem;
   grid-row: 1/2;
   background-color: inherit;
   color: inherit;
